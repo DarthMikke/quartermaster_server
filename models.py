@@ -45,7 +45,7 @@ def put_entity(plural, instance):
             save_entities(plural, entities)
             return instance
 
-    max_id = 0 if len(entities) == 0 else [x['id'] for x in entities].sort()[-1]
+    max_id = 0 if len(entities) == 0 else max([x['id'] for x in entities])
     instance['id'] = max_id + 1
     entities.append(instance)
     save_entities(plural, entities)
