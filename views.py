@@ -4,7 +4,7 @@ import json
 
 from .models import *
 
-from django.http import JsonResponse, Http404, HttpResponseBadRequest, HttpResponseServerError, HttpResponseServerError
+from django.http import JsonResponse, Http404, HttpResponseBadRequest, HttpResponseServerError
 from django.views import View
 
 
@@ -20,7 +20,7 @@ class Categories(View):
         # Validate the request
         new_category = json.loads(request.body)
         if not ('name' in new_category.keys()):
-            return HttpResponseBadRequest
+            return HttpResponseBadRequest()
 
         added = put_entity("categories", new_category)
 
@@ -68,7 +68,7 @@ class Things(View):
         try:
             Thing.validate(new_thing)
         except:
-            return HttpResponseBadRequest
+            return HttpResponseBadRequest()
 
         added = put_entity("things", new_thing)
 
