@@ -49,7 +49,7 @@ def put_entity(plural, instance):
     instance['id'] = max_id + 1
     entities.append(instance)
     save_entities(plural, entities)
-    return entities
+    return instance
 
 
 def patch_entity(plural, instance):
