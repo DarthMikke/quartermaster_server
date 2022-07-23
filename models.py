@@ -32,7 +32,7 @@ def save_entities(plural, entities):
         raise TypeError("Tried to save an object instead of an array.")
     try:
         with open(f"quartermaster_data/{plural}.json", "w") as fh:
-            return json.dump(entities, fh)
+            return json.dump(entities, fh, indent=2)
     except Exception as e:
         raise e
 
