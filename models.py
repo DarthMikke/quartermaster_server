@@ -28,6 +28,8 @@ def get_entities(plural):
 
 
 def save_entities(plural, entities):
+    if type(entities) != list:
+        raise TypeError("Tried to save an object instead of an array.")
     try:
         with open(f"quartermaster_data/{plural}.json", "w") as fh:
             return json.dump(entities, fh)
